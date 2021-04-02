@@ -15,7 +15,7 @@ function buildMetaData(sample){
         })
 
         //Bonus build gauge
-        // buildGuage(result.wfreq)
+        buildGauge(result.wfreq);
     })
 }
 
