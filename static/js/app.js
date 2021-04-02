@@ -1,3 +1,18 @@
+function buildMetaData(sample){
+    
+}
+
+function buildCharts(sample){
+    d3.json("samples.json").then(function(data){
+        var samples = data.samples;
+        //console.log(samples)
+        var resultsArray = samples.filter(function(data){
+            return data.id === sample;
+        })
+        console.log(resultsArray)
+    })
+}
+
 function init(){
     console.log("hello world");
 
@@ -15,6 +30,11 @@ function init(){
           .text(name)
           .property("value", name)
       })
+
+      var firstSample = sampleNames[0];
+      buildCharts(firstSample);
+      buildMetaData(firstSample);
+
     })
 }
 
