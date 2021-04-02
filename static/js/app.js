@@ -1,5 +1,19 @@
 function buildMetaData(sample){
-    
+    d3.json("samples.json").then(function(data){
+        var metadata = data.metadata;
+        var resultsArray = metadata.filter(function(data){
+            return data.id == sample;
+        })
+        var result = resultsArray[0];
+        var PANEL = d3.select("#sample-metadata");
+
+        //Clear any existing data
+        PANEL.html("");
+
+        Object.entries(result).forEach(function([key, value]){
+            PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+        })
+    })
 }
 
 function buildCharts(sample){
