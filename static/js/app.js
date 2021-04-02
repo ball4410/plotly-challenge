@@ -13,6 +13,9 @@ function buildMetaData(sample){
         Object.entries(result).forEach(function([key, value]){
             PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
         })
+
+        //Bonus build gauge
+        // buildGuage(result.wfreq)
     })
 }
 
@@ -97,6 +100,11 @@ function init(){
       buildMetaData(firstSample);
 
     })
+}
+
+function optionChanged(newSample){
+    buildCharts(newSample);
+    buildMetaData(newSample);
 }
 
 init()
