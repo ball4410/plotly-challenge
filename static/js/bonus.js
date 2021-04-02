@@ -54,7 +54,7 @@ function buildGauge(wfreq){
     ];
 
     var layout = {
-        shape: [
+        shapes: [
             {
                 type: "path",
                 path: path,
